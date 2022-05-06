@@ -24,13 +24,14 @@ export class Mouse {
     constructor() {
 
         if(Util.instance.isTouchDevice()) {
-            window.addEventListener('touchstart', (e:any = {}) => {
+            const tg = document.querySelector('.l-drag') || window
+            tg.addEventListener('touchstart', (e:any = {}) => {
                 this._eTouchStart(e)
             }, {passive:false})
-            window.addEventListener('touchend', () => {
+            tg.addEventListener('touchend', () => {
                 this._eTouchEnd()
             }, {passive:false})
-            window.addEventListener('touchmove', (e:any = {}) => {
+            tg.addEventListener('touchmove', (e:any = {}) => {
                 this._eTouchMove(e)
             }, {passive:false})
         } else {
